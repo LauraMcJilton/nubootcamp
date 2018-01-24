@@ -1,0 +1,362 @@
+<style>
+        .center {
+        margin: auto;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        align-items: center;
+      
+      }
+      
+      * { box-sizing:border-box; }
+      
+      /* basic stylings ------------------------------------------ */
+      body 				 { background:url(https://scotch.io/wp-content/uploads/2014/07/61.jpg); }
+      .container 		{ 
+        font-family:'Open Sans';
+        width:1200px; 
+        display:block; 
+        background:#FFF;
+        padding:10px 50px 50px;
+      }
+
+      .container2 		{ 
+        font-family:'Open Sans';
+        width:100%; 
+        display:block; 
+        background:#FFF;
+      }
+
+      /* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    height: 100%; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+      h2 		 { 
+        text-align:center; 
+        margin-bottom:50px; 
+      }
+      
+      p  { color: rgb(48, 129, 235); font-family: 'Open Sans', sans-serif; font-style: normal; font-size: 34px; font-weight: 300; line-height: 40px; margin: 0 0 16px; }
+      h1 { color: rgb(48, 129, 235); font-family: 'Open Sans', sans-serif; font-style: normal; font-size: 34px; font-weight: 300; line-height: 40px; margin: 0 0 16px; }
+      h3 { color: rgb(77, 77, 77); font-family: 'Open Sans', sans-serif; font-style: normal; font-size: 15px; font-weight: 300; line-height: 20px; margin: 0 0 16px; }
+      li { color: rgb(77, 77, 77); font-family: 'Open Sans', sans-serif; font-style: normal; font-size: 13px; font-weight: 300; line-height: 3px; margin: 0 0 16px; }
+      h4 { color: rgb(77, 77, 77); font-family: 'Open Sans', sans-serif; font-style: normal; font-size: 17px; font-weight: 300; line-height: 20px; margin: 0 0 16px; }
+
+
+      h2 small { 
+        font-weight:normal; 
+        color:#888; 
+        display:block; 
+      }
+
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    }
+      .footer 	{ text-align:center; }
+      .footer a  { color:#53B2C8; }
+      
+      /* form starting stylings ------------------------------- */
+      .group 			  { 
+        position:relative; 
+        margin-bottom:20px; 
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        align-items: center;
+      
+      }
+      input 				{
+        font-size:18px;
+        padding:10px 10px 10px 5px;
+        display:block;
+        width:300px;
+        border:none;
+        border-bottom:1px solid #757575;
+        align-items: center;
+      
+      }
+
+      select {
+display: block;
+margin: 0 auto;
+}
+
+
+
+      input:focus 		{ outline:none; }
+      
+      /* LABEL ======================================= */
+      label 				 {
+        color:#999; 
+        font-size:18px;
+        font-weight:normal;
+        position:absolute;
+        pointer-events:none;
+        left:5px;
+        top:10px;
+        transition:0.2s ease all; 
+        -moz-transition:0.2s ease all; 
+        -webkit-transition:0.2s ease all;
+      }
+      
+      /* active state */
+      input:focus ~ label, input:valid ~ label 		{
+        top:-20px;
+        font-size:14px;
+        color:#2196F3;
+      }
+      
+      /* BOTTOM BARS ================================= */
+      .bar 	{ position:relative; display:block; width:300px; }
+      .bar:before, .bar:after 	{
+        content:'';
+        height:2px; 
+        width:0;
+        bottom:1px; 
+        position:absolute;
+        background:#2196F3; 
+        transition:0.2s ease all; 
+        -moz-transition:0.2s ease all; 
+        -webkit-transition:0.2s ease all;
+      }
+      .bar:before {
+        left:50%;
+      }
+      .bar:after {
+        right:50%; 
+      }
+      
+      /* active state */
+      input:focus ~ .bar:before, input:focus ~ .bar:after {
+        width:50%;
+      }
+      
+      /* HIGHLIGHTER ================================== */
+      .highlight {
+        position:absolute;
+        height:60%; 
+        width:100px; 
+        top:25%; 
+        left:0;
+        pointer-events:none;
+        opacity:0.5;
+      }
+      
+      /* active state */
+      input:focus ~ .highlight {
+        -webkit-animation:inputHighlighter 0.3s ease;
+        -moz-animation:inputHighlighter 0.3s ease;
+        animation:inputHighlighter 0.3s ease;
+      }
+      
+      /* ANIMATIONS ================ */
+      @-webkit-keyframes inputHighlighter {
+          from { background:#2196F3; }
+        to 	{ width:0; background:transparent; }
+      }
+      @-moz-keyframes inputHighlighter {
+          from { background:#2196F3; }
+        to 	{ width:0; background:transparent; }
+      }
+      @keyframes inputHighlighter {
+          from { background:#2196F3; }
+        to 	{ width:0; background:transparent; }
+      }
+      
+      /* Material style */
+      button {
+        border: none;
+        cursor: pointer;
+        color: white;
+        padding: 15px 40px;
+        border-radius: 2px;
+        font-size: 22px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
+        background: #2196F3;
+        border-radius: 8px;
+      }
+      
+      /* Ripple magic */
+      button{
+        position: relative;
+        overflow: hidden;
+      }
+      
+      button:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, .5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+      }
+      
+      @keyframes ripple {
+        0% {
+          transform: scale(0, 0);
+          opacity: 1;
+        }
+        20% {
+          transform: scale(50, 50);
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: scale(150, 150);
+        }
+      }
+      
+      button:focus:not(:active)::after {
+        animation: ripple 1s ease-out;
+      }
+      
+      </style>
+
+      
+  
+<div class="row">
+
+<div class="column" style="background-color:rgb(255, 255, 255);">
+<div style="margin:20px">    
+<div *ngFor="let id of idlist; let repo of repolist">
+    <h4><b>User Information</b></h4>
+
+<img [src]="id.avatar_url" width="70" align="middle"> <br>
+<div style="padding-top:10px">
+<h3><b>Login:</b> {{id.login}} <br> 
+    <b>Name:</b> {{id.name}} <br>
+    <b>Location</b> {{id.location}} <br>
+    <b>No. of Public Repos:</b> {{id.public_repos}}<br>
+    <b>Member Since: </b>{{id.created_at | date}}  
+</h3>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="column" style="background-color:rgb(255, 255, 255);">
+<div style="margin:20px">   
+   
+<div *ngFor="let item of repolist">
+<h4><b>Repository Information</b></h4>
+<h3><b>Repo Name:</b> {{ item.name }} <br> 
+    <b>Repo Desc:</b> {{ item.description }} <br>
+    <b>Repo URL: </b> <a href="{{ item.html_url}}" target="_blank"> Click Here</a> <br>
+    <b>Has Issues: </b>{{ item.has_issues}} 
+</h3>
+</div>
+</div>
+</div>
+
+
+
+<!--From here we print the actual summary as asked in the project-->
+<div class="column" style="background-color:rgb(255, 255, 255);">
+    <div style="margin:20px"> 
+        
+            <div *ngFor="let repo of milestonelist">
+            <h3 style="font-size: 20px; text-align: center"><b><u>STATUS REPORT: NUVention Project</u></b></h3>
+            <h3 style="text-align: center"><b>Select Milestone: </b></h3>
+           
+            <div style="align-self: center">
+            <select [(ngModel)]="selectedValue" ng-options="item.title">
+            <option *ngFor="let item of repo">{{ item.title }}</option>
+            </select> <br>
+            
+            <!--Display Date according to a MileStone-->
+            <div *ngFor="let repo of milestonelist">
+                <div *ngFor="let item of repo">
+                  <span *ngIf="item.title==selectedValue" style="text-align: center"><h3><b>Date Range: </b>{{item.created_at}} to {{item.due_on}} <br> <br> <br> <textarea id="myTextarea" align="center" rows="4" cols="50" placeholder="Click to Enter Summary for {{ selectedValue }}"></textarea></h3></span>                 
+                </div>
+            </div>
+
+
+            <!--Display completed Issues labelled as Stories-->
+            <br> <br>
+            <h3><b>Completed Stories:</b></h3>
+            <div *ngFor="let repo of issuelist">
+                <div *ngFor="let item of repo">
+                  <span *ngIf="item.milestone.title==selectedValue && item.state==closed && item.labels[0].name==stories">
+                        {{ item.title }}
+                  </span>                 
+                </div>
+            </div>
+
+
+
+            <!--Display completed Issues labelled as anything other than Stories-->
+            <br> <br> <br>
+            <h3><b>Completed Tasks</b></h3>
+            <div *ngFor="let repo of issuelist">
+                <div *ngFor="let item of repo">
+                  <span *ngIf="item.milestone.title==selectedValue && item.state==closed && item.labels[0].name!=stories">
+                    {{ item.title }}
+                  </span>                 
+                </div>
+            </div>
+            
+
+
+            <!--Display Issues that haven't been completed-->
+            <br> <br> <br>
+            <h3><b>Stories for Next Milestone + Open Stories</b></h3>
+            <div *ngFor="let repo of issuelist">
+                <div *ngFor="let item of repo">
+                  <span *ngIf="item.state==open && item.labels[0].name==stories">
+                    {{ item.title }}
+                  </span>                 
+                </div>
+            </div>
+
+
+
+            
+
+            </div>
+            </div>
+
+           
+            
+
+
+
+
+    </div>    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--End of Division-->
+</div>
+
+
+
+
